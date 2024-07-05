@@ -15,10 +15,27 @@ export const BannerText = styled.div`
     justify-content: center;
 `
 
-export const TextItems = styled.div`
+export const BannerItem = styled.li`
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 70px;
+    gap: 5px;
+    align-items: center;
+
+    svg {
+        border-radius: 50%;
+        padding: 0.375rem;
+        color: ${props => props.theme.white};
+    }
+`
+
+export const ItemsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+`
+
+export const TextItems = styled.div`
+    display: grid;
+    column-count: 4;
     gap: 20px;
     text-decoration: none;
     list-style-type: none;
@@ -32,7 +49,7 @@ export const TextTitle = styled.div`
     h1{
         font-family: "Baloo 2", sans-serif;
         color: ${props => props.theme["base-title"]};
-        font-size: 3rem;
+        font-size: 3.2rem;
         line-height: 3rem;
     }
 

@@ -1,9 +1,11 @@
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
-import { BannerContainer, BannerImg, BannerText, TextItems, TextTitle } from "./styles";
+import { BannerContainer, BannerImg, BannerItem, BannerText, ItemsContainer, TextItems, TextTitle } from "./styles";
 import BannerLogo from "../../assets/images/coffee-image.svg"
-import { BannerItem } from "../BannerItem";
+import { useTheme } from "styled-components";
 
 export function Banner() {
+    const theme = useTheme();
+
     return (
         <BannerContainer>
 
@@ -12,16 +14,34 @@ export function Banner() {
                     <h1>Encontre o café perfeito para qualquer hora do dia</h1>
                     <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
                 </TextTitle>
-                <TextItems>
-                    <BannerItem Icon={ShoppingCart} text="Compra simples e segura"/>
-                    <BannerItem Icon={Package} text="Embalagem mantém o café intacto"/>
-                    <BannerItem Icon={Timer} text="Entrega rápida e rastreada"/>
-                    <BannerItem Icon={Coffee} text="O café chega fresquinho até você"/>
-                    {/* <li><ShoppingCart/> Compra simples e segura</li> */}
-                    {/* <li><Package/> Embalagem mantém o café intacto</li>
-                    <li><Timer/> Entrega rápida e rastreada</li>
-                    <li><Coffee/> O café chega fresquinho até você</li> */}
-                </TextItems>
+
+                <ItemsContainer>
+                    <TextItems>
+                        <BannerItem>
+                            <ShoppingCart size={30} weight="fill" style={{backgroundColor : theme["yellow-dark"] }}/>
+                            Compra simples e segura
+                        </BannerItem>
+
+                        <BannerItem>
+                            <Timer size={30} weight="fill" style={{backgroundColor : theme.yellow }}/>
+                            Entrega rápida e rastreada
+                        </BannerItem>
+                    </TextItems>
+
+                    <TextItems>
+                        
+                        <BannerItem>
+                            <Package size={30} weight="fill" style={{backgroundColor : theme["base-text"] }}/>
+                            Embalagem mantém o café intacto
+                        </BannerItem>
+
+                        <BannerItem>
+                            <Coffee size={30} weight="fill" style={{backgroundColor : theme.purple }}/>
+                            O café chega fresquinho até você
+                        </BannerItem>
+                    </TextItems>
+                </ItemsContainer>
+                
             </BannerText>
 
 
