@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const BannerContainer = styled.div`
     display: flex;
-    max-width: 1210px;
-    margin: auto;
     justify-content: space-between;
     padding: 1rem;
     align-items: center;

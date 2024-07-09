@@ -1,12 +1,13 @@
 import { Banner } from "../../components/Banner"
 import { Header } from "../../components/Header"
+import { HomeContainer } from "./styles"
 
 export function Home(){
     return (
-        <>
+        <HomeContainer>
             <Header/>
             <Banner/>
-            <h1>Hello World - HOME</h1>
-        </>
+            <h2>Nossos Cafés</h2>
+        </HomeContainer>
     )
 }
