@@ -1,15 +1,21 @@
 import { Banner } from "../../components/Banner"
 import { Header } from "../../components/Header"
 import { ItemCard } from "../../components/ItemCard"
-import { HomeContainer } from "./styles"
+import { ContentContainer, HomeContainer } from "./styles"
 
 export function Home(){
     return (
         <HomeContainer>
             <Header/>
             <Banner/>
-            <h2>Nossos Cafés</h2>
-            <ItemCard/>
+
+            <ContentContainer>
+                <h2>Nossos Cafés</h2>
+
+                <br/>
+                <br/>
+                <ItemCard/>
+            </ContentContainer>
         </HomeContainer>
     )
 }

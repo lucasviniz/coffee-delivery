@@ -2,19 +2,35 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 260px;
+`
+
+export const Card = styled.div`
+    display: flex;
     max-width: 260px;
     border-radius: 15px;
     border-top-right-radius: 40px;
     border-bottom-left-radius: 40px;
     background-color: ${props => props.theme["base-card"]};
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 6rem 1.5rem 1.5rem 1.5rem;
     align-items: center;
-    
+`
 
-    img{
-        width: 150px;
-    }
+export const ImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 80px;
+    width: 150px;
+`
+
+export const Tags = styled.div`
+    display: flex;
+    gap: 5px;
 `
 
 export const CardContent= styled.div`
@@ -22,9 +38,8 @@ export const CardContent= styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    position: relative;
-    bottom: 60px;
-
+    gap: 10px;
+    padding-bottom: 25px;
     span{
         color: ${props => props.theme["yellow-dark"]};
         font-size: 0.70rem;

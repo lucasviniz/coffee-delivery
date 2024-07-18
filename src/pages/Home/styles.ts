@@ -8,3 +8,7 @@ export const HomeContainer = styled.div`
         font-weight: bold;
     }
 `
+
+export const ContentContainer = styled.div`
+    padding: 1rem;
+`
