@@ -5,32 +5,25 @@ export const CardContainer = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    max-width: 260px;
-`
-
-export const Card = styled.div`
-    display: flex;
-    max-width: 260px;
+    width: 256px;
     border-radius: 15px;
     border-top-right-radius: 40px;
     border-bottom-left-radius: 40px;
     background-color: ${props => props.theme["base-card"]};
-    flex-direction: column;
-    padding: 6rem 1.5rem 1.5rem 1.5rem;
-    align-items: center;
+    padding: 1rem;
 `
 
-export const ImageContainer = styled.div`
+export const CardImg = styled.img`
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 80px;
-    width: 150px;
+    max-width: 150px;
+    margin-top: -50px;
 `
 
 export const Tags = styled.div`
     display: flex;
     gap: 5px;
+    margin-block: 5px 20px;
 `
 
 export const CardContent= styled.div`
@@ -38,7 +31,6 @@ export const CardContent= styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
     padding-bottom: 25px;
     span{
         color: ${props => props.theme["yellow-dark"]};
@@ -49,17 +41,44 @@ export const CardContent= styled.div`
         border-radius: 20px;
         background-color: ${props => props.theme["yellow-light"]};
     }
+    h3{
+        font-family: "Baloo 2", sans-serif;
+        font-size: 1.3rem;
+    }
+    p{
+        margin-top: 5px;
+        font-size: 0.875rem;
+        color: ${props => props.theme["base-label"]};
+    }
 `
 
 export const PriceContainer = styled.div`
+    span{
+        font-size: 0.875rem;
+    }
     strong{
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-family: "Baloo 2", sans-serif;
     }
 `
 
 export const CardFooter = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding-left: 10px;
+`
+
+export const CardButton = styled.button`
+    cursor: pointer;
+    display: flex;
+    border-radius: 5px;
+    border: 0;
+    padding: 8px;
+    background-color: ${props => props.theme["purple-dark"]};
+`
+export const OrderContainer = styled.div`
+    display: flex;
+    gap: 10px;
 `

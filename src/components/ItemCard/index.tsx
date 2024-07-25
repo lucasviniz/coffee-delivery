@@ -1,15 +1,46 @@
-import { Card, CardContainer, CardContent, CardFooter, ImageContainer, PriceContainer, Tags } from "./styles";
+import { CardButton, CardContainer, CardContent, CardFooter, CardImg, OrderContainer, PriceContainer, Tags } from "./styles";
 import CoffeeImg from "../../assets/images/coffee/Coffee-1.svg"
-import { ShoppingCart } from "@phosphor-icons/react";
+import { CheckFat, ShoppingCart } from "@phosphor-icons/react";
+import { QuantityInput } from "../QuantityInput";
+import { useState } from "react";
+
+interface Order{
+    id: number;
+    quantity: number;
+    price: number;
+    coffee: string;
+    total: number;
+}
 
 export function ItemCard(){
-    return (
+    const [quantity, setQuantity] = useState(1);
+    const [order, setOrder] = useState({} as Order);
 
-        <CardContainer>
-            <ImageContainer>
-                <img src={CoffeeImg} alt="" />
-            </ImageContainer>
-            <Card>
+    function handleQuantityIncrement(){
+        setQuantity(quantity + 1);
+    }
+
+    function handleQuantityDecrement(){
+        if(quantity > 1){
+            setQuantity(quantity - 1);
+        }
+    }
+
+    function makeAWish(){
+        setOrder({
+            id: Math.random(),
+            quantity,
+            price: 9.90,
+            coffee: "Expresso Tradicional",
+            total: quantity * 9.90
+        });
+        console.log("Pedido adicionado ao carrinho!");
+    }
+
+    return (
+                
+            <CardContainer>
+                <CardImg src={CoffeeImg} alt="" />
                 <CardContent>
                     <Tags>
                         <span>TRADICIONAL</span>
@@ -24,9 +55,16 @@ export function ItemCard(){
                         <span>R$</span>
                         <strong>9,90</strong>
                     </PriceContainer>
-                    <button><ShoppingCart/></button>
+
+                    <OrderContainer>
+                        <QuantityInput quantity={quantity} handleDecrement={handleQuantityDecrement} handleIncrement={handleQuantityIncrement}/>
+
+                    
+                        <CardButton>
+                            {order.id ? <CheckFat  weight="fill" color="#FFFFFF" size={24}/> : <ShoppingCart onClick={makeAWish} weight="fill" color="#FFFFFF" size={24}/>}
+                        </CardButton>
+                    </OrderContainer>
                 </CardFooter>
-            </Card>
-        </CardContainer>
+            </CardContainer>
     )
 }
