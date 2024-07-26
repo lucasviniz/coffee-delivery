@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const CoffeeListContainer = styled.div`
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+`
+
 export const CardContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -10,7 +16,7 @@ export const CardContainer = styled.div`
     border-top-right-radius: 40px;
     border-bottom-left-radius: 40px;
     background-color: ${props => props.theme["base-card"]};
-    padding: 1rem;
+    padding: 1.5rem;
 `
 
 export const CardImg = styled.img`
@@ -67,7 +73,6 @@ export const CardFooter = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-left: 10px;
 `
 
 export const CardButton = styled.button`
