@@ -2,8 +2,7 @@ import { CardButton, CardContainer, CardContent, CardFooter, CardImg, CoffeeList
 import { CheckFat, ShoppingCart } from "@phosphor-icons/react";
 import { QuantityInput } from "../QuantityInput";
 import { useState } from "react";
-import { coffeeData } from '../../../data.json'
-import CoffeeImg from "../../assets/images/coffee/americano.png";
+import { coffeeData } from '../../app/order/order.json'
 
 // interface Order{
 //     id: number;
@@ -41,7 +40,7 @@ export function ItemCard(){
             <CoffeeListContainer>
                 {coffeeData.map((coffee) => (
                     <CardContainer key={coffee.id}>
-                        <CardImg src={CoffeeImg} alt="" />
+                        <CardImg src={coffee.image} alt="" />
                         <CardContent>
                             <Tags>
                                 <span>TRADICIONAL</span>

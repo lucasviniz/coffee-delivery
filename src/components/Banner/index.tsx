@@ -1,6 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { BannerContainer, BannerImg, BannerItem, BannerText, ItemsContainer, TextItems, TextTitle } from "./styles";
-import BannerLogo from "../../assets/images/coffee-image.svg"
+import BannerLogo from "/images/coffee-image.svg"
 import { useTheme } from "styled-components";
 
 export function Banner() {

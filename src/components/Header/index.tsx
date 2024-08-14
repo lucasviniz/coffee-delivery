@@ -1,5 +1,5 @@
 import { HeaderContainer, LocationContainer } from "./styles";
-import CoffeeLogo from "../../assets/images/coffee-logo.svg";
+import CoffeeLogo from "/images/coffee-logo.svg";
 import { MapPin } from "@phosphor-icons/react";
 
 export function Header (){
