@@ -1,7 +1,8 @@
 import { Banner } from "../../components/Banner"
 import { Header } from "../../components/Header"
 import { ItemCard } from "../../components/ItemCard"
-import { ContentContainer, HomeContainer } from "./styles"
+import { CoffeeList, ContentContainer, HomeContainer } from "./styles"
+import { coffeeData } from '../../app/order/order.json'
 
 export function Home(){
     return (
@@ -14,7 +15,11 @@ export function Home(){
 
                 <br/>
                 <br/>
-                <ItemCard/>
+                <CoffeeList>
+                    {coffeeData.map((coffee) => (
+                        <ItemCard key={coffee.id} coffee={coffee}/>
+                    ))}
+                </CoffeeList>
             </ContentContainer>
         </HomeContainer>
     )

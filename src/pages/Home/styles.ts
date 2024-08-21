@@ -12,3 +12,10 @@ export const HomeContainer = styled.div`
 export const ContentContainer = styled.div`
     padding: 1rem;
 `
+
+
+export const CoffeeList = styled.div`
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+`

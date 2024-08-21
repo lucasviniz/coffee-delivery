@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const CoffeeListContainer = styled.div`
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-`
-
 export const CardContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -75,13 +69,23 @@ export const CardFooter = styled.div`
     width: 100%;
 `
 
-export const CardButton = styled.button`
+export const CardButton = styled.button<{ $isOrderSelected?: boolean }>`
     cursor: pointer;
     display: flex;
     border-radius: 5px;
     border: 0;
     padding: 8px;
-    background-color: ${props => props.theme["purple-dark"]};
+    background-color: ${({ theme, $isOrderSelected }) =>
+    $isOrderSelected ? theme.green : theme['purple-dark']};
+    transition: background-color 0.2s;
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+
+    &:hover {
+    background-color: ${({ theme, $isOrderSelected }) =>
+        $isOrderSelected ? theme.green : theme.purple};
+    }
 `
 export const OrderContainer = styled.div`
     display: flex;

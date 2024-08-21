@@ -1,8 +1,8 @@
-import { CardButton, CardContainer, CardContent, CardFooter, CardImg, CoffeeListContainer, OrderContainer, PriceContainer, Tags } from "./styles";
+import { CardButton, CardContainer, CardContent, CardFooter, CardImg, OrderContainer, PriceContainer, Tags } from "./styles";
 import { CheckFat, ShoppingCart } from "@phosphor-icons/react";
 import { QuantityInput } from "../QuantityInput";
-import { useState } from "react";
-import { coffeeData } from '../../app/order/order.json'
+import { useEffect, useState } from "react";
+import { useTheme } from "styled-components";
 
 // interface Order{
 //     id: number;
@@ -16,14 +16,27 @@ interface CoffeeItem{
     id: number;
     title: string;
     description: string;
-    tags:{ "1": string , "2"?: string};
+    tags: string[];
     image: string;
     price: string;
 }
 
-export function ItemCard(){
+type ItemCardProps ={
+    coffee: {
+        id: number;
+        title: string;
+        description: string;
+        tags: string[];
+        image: string;
+        price: string;
+    }
+}
+
+export function ItemCard({ coffee }: ItemCardProps){
     const [quantity, setQuantity] = useState(1);
-    const [orderSelected, setOrderSelected] = useState({} as CoffeeItem);
+    const theme = useTheme()
+    const [order, setOrder] = useState({} as CoffeeItem);
+    const [isOrderSelected, setIsOrderSelected] = useState(false);
 
     function handleQuantityIncrement(){
         setQuantity(quantity + 1);
@@ -35,38 +48,69 @@ export function ItemCard(){
         }
     }
 
+    function handleAddItem(){
+        setOrder(coffee);
+        setIsOrderSelected(true);
+    }
+
+    useEffect(() => {
+        let timeout: number
+    
+        if (isOrderSelected) {
+          timeout = setTimeout(() => {
+            setIsOrderSelected(false)
+          }, 1000)
+        }
+    
+        return () => {
+          if (timeout) {
+            clearTimeout(timeout)
+          }
+        }
+      }, [isOrderSelected])
+
+
+      console.log(order)
+
     return (
-        
-            <CoffeeListContainer>
-                {coffeeData.map((coffee) => (
-                    <CardContainer key={coffee.id}>
-                        <CardImg src={coffee.image} alt="" />
-                        <CardContent>
-                            <Tags>
-                                <span>TRADICIONAL</span>
-                                <span>COM LEITE</span>
-                            </Tags>
-                            <h3>{coffee.title}</h3>
-                            <p>{coffee.description}</p>
-                        </CardContent>
+            <CardContainer>
+                <CardImg src={coffee.image} alt="" />
+                <CardContent>
+                    <Tags>
+                        <span>TRADICIONAL</span>
+                        <span>COM LEITE</span>
+                    </Tags>
+                    <h3>{coffee.title}</h3>
+                    <p>{coffee.description}</p>
+                </CardContent>
 
-                        <CardFooter>
-                            <PriceContainer>
-                                <span>R$</span>
-                                <strong>{coffee.price}</strong>
-                            </PriceContainer>
+                <CardFooter>
+                    <PriceContainer>
+                        <span>R$</span>
+                        <strong>{coffee.price}</strong>
+                    </PriceContainer>
 
-                            <OrderContainer>
-                                <QuantityInput quantity={quantity} handleDecrement={handleQuantityDecrement} handleIncrement={handleQuantityIncrement}/>
+                    <OrderContainer>
+                        <QuantityInput quantity={quantity} handleDecrement={handleQuantityDecrement} handleIncrement={handleQuantityIncrement}/>
 
-                            
-                                <CardButton>
-                                    {orderSelected.id == coffee.id ? <CheckFat  weight="fill" color="#FFFFFF" size={24}/> : <ShoppingCart onClick={() => setOrderSelected(coffee)} weight="fill" color="#FFFFFF" size={24}/>}
-                                </CardButton>
-                            </OrderContainer>
-                        </CardFooter>
-                </CardContainer>
-                ))}
-            </CoffeeListContainer>
+                    
+                        <CardButton $isOrderSelected={isOrderSelected} disabled={isOrderSelected} onClick={handleAddItem}>
+                            {isOrderSelected 
+                            ?
+                                <CheckFat 
+                                    weight="fill" 
+                                    color={theme['base-card']}
+                                    size={22}
+                                /> 
+                            : 
+                                <ShoppingCart
+                                    weight="fill" color={theme['base-card']}
+                                    size={22}
+                                />
+                            }
+                        </CardButton>
+                    </OrderContainer>
+                </CardFooter>
+        </CardContainer>
     )
 }
