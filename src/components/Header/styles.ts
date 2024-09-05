@@ -5,6 +5,8 @@ export const HeaderContainer = styled.div`
     padding: 1rem;
     justify-content: space-between;
     border-bottom: 1px solid black;
+    margin: auto;
+    max-width: 1210px;
 `
 
 export const LocationContainer = styled.div`

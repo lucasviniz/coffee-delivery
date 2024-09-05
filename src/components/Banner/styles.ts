@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.div`
+    
+    background-image: url("/images/Background.svg");
+`
+
+export const BannerArea = styled.div`
+    margin: auto;
+    max-width: 1210px;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
