@@ -1,18 +1,24 @@
-import { HeaderContainer, LocationContainer } from "./styles";
+import { useTheme } from "styled-components";
+import { AsideContainer, HeaderContainer, LocationContainer, OrderCartButton } from "./styles";
 import CoffeeLogo from "/images/coffee-logo.svg";
-import { MapPin } from "@phosphor-icons/react";
+import { MapPin, ShoppingCart } from "@phosphor-icons/react";
 
 export function Header (){
+    const theme = useTheme()
     return (
         <HeaderContainer>
             <img src={CoffeeLogo} alt="" />
 
-            <aside>
+            <AsideContainer>
                 <LocationContainer>
                     <MapPin size={24} weight="fill"/>
                     Porto Alegre, RS
                 </LocationContainer>
-            </aside>
+
+                <OrderCartButton>
+                    <ShoppingCart size={24} weight="fill" color={theme["yellow-dark"]}/>
+                </OrderCartButton>
+            </AsideContainer>
         </HeaderContainer>
     )
 }

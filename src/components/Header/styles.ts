@@ -4,7 +4,6 @@ export const HeaderContainer = styled.div`
     display: flex;
     padding: 1rem;
     justify-content: space-between;
-    border-bottom: 1px solid black;
     margin: auto;
     max-width: 1210px;
 `
@@ -22,4 +21,17 @@ export const LocationContainer = styled.div`
     svg{
        color: ${props => props.theme["purple"]}; 
     }
+`
+
+export const OrderCartButton = styled.button`
+    border: 0;
+    border-radius: 10px;
+    background-color: ${props => props.theme["yellow-light"]};
+    padding: 0.5rem;
+
+`
+
+export const AsideContainer = styled.aside`
+    display: flex;
+    gap: 10px;
 `

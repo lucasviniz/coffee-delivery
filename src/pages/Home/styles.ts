@@ -11,6 +11,12 @@ export const ContentContainer = styled.div`
     padding: 1rem;
     margin: auto;
     max-width: 1210px;
+    h2 {
+        font-weight: bold;
+        color: ${props => props.theme["base-subtitle"]};
+        font-size: 2rem;
+        padding-bottom: 3rem;
+    }
 `
 
 

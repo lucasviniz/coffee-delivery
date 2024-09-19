@@ -12,9 +12,6 @@ export function Home(){
 
             <ContentContainer>
                 <h2>Nossos Cafés</h2>
-
-                <br/>
-                <br/>
                 <CoffeeList>
                     {coffeeData.map((coffee) => (
                         <ItemCard key={coffee.id} coffee={coffee}/>

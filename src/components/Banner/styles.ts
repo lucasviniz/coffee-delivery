@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const BannerContainer = styled.div`
     
-    background-image: url("/images/Background.svg");
+    background-image: url("/images/Background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 `
 
 export const BannerArea = styled.div`
@@ -10,7 +13,7 @@ export const BannerArea = styled.div`
     max-width: 1210px;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 5rem 1rem;
     align-items: center;
 `
 

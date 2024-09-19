@@ -23,7 +23,7 @@ export const CardImg = styled.img`
 export const Tags = styled.div`
     display: flex;
     gap: 5px;
-    margin-block: 5px 20px;
+    margin-block: 10px 20px;
 `
 
 export const CardContent= styled.div`
@@ -31,7 +31,7 @@ export const CardContent= styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-bottom: 25px;
+    padding-bottom: 30px;
     span{
         color: ${props => props.theme["yellow-dark"]};
         font-size: 0.70rem;
